@@ -18,9 +18,20 @@ module.exports = function(passport){
 
         if(err) return done(err, false);
         if(user) {
+            user.role = 'user'; //@todo make it dynamic
             return done(null, user);
         }else{
             return done(null, false);
         }
     }));
+
+    passport.serializeUser(function(user, done) { 
+        console.log("serialize");
+        done(null, user); 
+    });
+    passport.deserializeUser(function(obj, done) {
+        console.log("deserialise");
+         done(null, obj); 
+        });
+
 }

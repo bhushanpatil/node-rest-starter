@@ -1,0 +1,37 @@
+[
+    {
+      "group": "admin",
+      "permissions": [
+        {
+          "resource": "*",
+          "methods": "*",
+          "action": "allow"
+        }
+      ]      
+    },
+    {
+      "group": "user",
+      "permissions": [
+        {
+          "resource": "users/*",
+          "methods": ["POST", "GET", "PUT"],
+          "action": "allow"
+        }
+      ]
+    },
+    {
+      "group": "guest",
+      "permissions": [
+        {
+          "resource": "users/login",
+          "methods": ["POST"],
+          "action": "allow"
+        },
+        {
+            "resource": "users",
+            "methods": ["POST"],
+            "action": "allow"
+          }
+      ]
+    }
+  ]
